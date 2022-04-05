@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('admin-tmp/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-tmp/css/skin_color.css') }}">
     <!-- Toster -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -27,11 +27,11 @@
         <!-- Main-Header -->
         @include('admin.admin-body.header')
         <!-- Main-Header -->
-        
+
         <!-- Left side column. contains the logo and sidebar -->
         @include('admin.admin-body.sidebar')
         <!-- Content Wrapper. Contains page content -->
-        
+
         <div class="content-wrapper">
             @yield('admin')
         </div>
@@ -58,27 +58,64 @@
     <!-- Sunny Admin App -->
     <script src="{{asset('admin-tmp/js/template.js')}}"></script>
     <script src="{{asset('admin-tmp/js/pages/dashboard.js')}}"></script>
-    <!-- Toster -->
+    
+    <!-- Data table -->
+    <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
+    <script src="{{ asset('admin-tmp/js/pages/data-table.js') }}"></script>
+    
+    <!-- =================== Toster ========================================= -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
     @if(Session::has('message'))
     <script>
-        var type ="{{ Session::get('alert-type','info') }}" 
-        switch(type) {
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch (type) {
             case 'info':
                 toastr.info("{{ Session::get('message') }}");
-            break;
+                break;
             case 'success':
                 toastr.success("{{ Session::get('message') }}");
-            break;
+                break;
             case 'warning':
                 toastr.warning("{{ Session::get('message') }}");
-            break;
+                break;
             case 'error':
                 toastr.error("{{ Session::get('message') }}");
-            break;
+                break;
         }
     </script>
     @endif
+    <!-- End toster -->
+
+<!-- ============ Sweetalert ========================= -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#delete', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+    </script>
+    <!-- end sweetalert -->
 </body>
+
 </html>

@@ -223,12 +223,12 @@ body.dark-skin {
 .dark-skin .box-controls li > a {
   color: #8a99b5; }
 .dark-skin .box {
-  background-color: #415892; }
+  background-color: blue; }
   .dark-skin .box .box-header {
-    color: #8a99b5;
+    color: blue;
     border-color: rgba(255, 255, 255, 0.12); }
     .dark-skin .box .box-header .box-subtitle {
-      color: #8a99b5; }
+      color: blue; }
   .dark-skin .box .box-footer {
     background-color: #272e48;
     border-color: rgba(255, 255, 255, 0.12); }

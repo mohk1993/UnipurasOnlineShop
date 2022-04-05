@@ -22,24 +22,21 @@
                                     <div class="form-group">
                                         <h5>Current Password <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="password" id="current_password" name="oldPassword" class="form-control" required="" 
-                                            data-validation-required-message="This field is required">
+                                            <input type="password" id="current_password" name="oldPassword" class="form-control" required="" data-validation-required-message="This field is required">
                                             <div class="help-block"></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <h5>New Password <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="password" id="password" name="newPassword" class="form-control" required="" 
-                                            data-validation-required-message="This field is required">
+                                            <input type="password" id="password" name="newPassword" class="form-control" required="" data-validation-required-message="This field is required">
                                             <div class="help-block"></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <h5>Confirm Password <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="password" id="password_confirmation" name="confirmPassword" class="form-control" required="" 
-                                            data-validation-required-message="This field is required">
+                                            <input type="password" id="password_confirmation" name="confirmPassword" class="form-control" required="" data-validation-required-message="This field is required">
                                             <div class="help-block"></div>
                                         </div>
                                     </div>

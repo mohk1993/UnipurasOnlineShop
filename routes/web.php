@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\User\HomeController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,9 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 // ------------------------ Admin Auth Routes -------------------------
-Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
-	Route::get('/login', [AdminController::class, 'loginForm']);
-	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
+Route::group(['prefix' => 'admin', 'middleware' => ['admin:admin']], function () {
+    Route::get('/login', [AdminController::class, 'loginForm']);
+    Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 });
 
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
@@ -45,7 +46,7 @@ Route::post('/admin/password/changed', [AdminProfileController::class, 'updateAd
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     $id = Auth::user()->id;
     $user = User::find($id);
-    return view('dashboard',compact('user'));
+    return view('dashboard', compact('user'));
 })->name('dashboard');
 Route::get('/user/logout', [HomeController::class, 'LogoutUser'])->name('user.logout');
 
@@ -57,3 +58,13 @@ Route::post('/user/profile/passwordUpdated', [HomeController::class, 'UpdateUser
 
 // ------------------------ User Home Routes -----------------------------
 Route::get('/', [HomeController::class, 'index']);
+
+// ---------------------- Partners Routes For Admin ---------------------------------
+route::prefix('partner')->group(function () {
+    Route::get('/view', [PartnerController::class, 'ViewPartners'])->name('view.partners');
+    Route::get('/add-partner', [PartnerController::class, 'ViewAddPartner'])->name('view.add.partner');
+    Route::post('/partner-added', [PartnerController::class, 'AddPartner'])->name('add.partner');
+    Route::get('/update/{id}', [PartnerController::class, 'ViewUpdatePartner'])->name('view.update.partner');
+    Route::post('/updated/{id}', [PartnerController::class, 'UpdatePartner'])->name('update.partner');
+    Route::get('/delete/{id}', [PartnerController::class, 'DeletePartner'])->name('view.delete.partner');
+});
