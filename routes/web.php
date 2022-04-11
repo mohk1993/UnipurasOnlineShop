@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\PartnerController;
+use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\User\HomeController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -67,4 +70,34 @@ route::prefix('partner')->group(function () {
     Route::get('/update/{id}', [PartnerController::class, 'ViewUpdatePartner'])->name('view.update.partner');
     Route::post('/updated/{id}', [PartnerController::class, 'UpdatePartner'])->name('update.partner');
     Route::get('/delete/{id}', [PartnerController::class, 'DeletePartner'])->name('view.delete.partner');
+});
+
+// ---------------------- Categories Routes For Admin ---------------------------------
+route::prefix('category')->group(function () {
+    Route::get('/view', [CategoryController::class, 'ViewCategories'])->name('view.category');
+    Route::get('/add', [CategoryController::class, 'ViewAddCategory'])->name('view.add.category');
+    Route::post('/added', [CategoryController::class, 'AddCategory'])->name('add.category');
+    Route::get('/update/{id}', [CategoryController::class, 'ViewUpdateCategory'])->name('view.update.category');
+    Route::post('/updated/{id}', [CategoryController::class, 'UpdateCategory'])->name('update.category');
+    Route::get('/delete/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
+});
+
+// ---------------------- Sub Categories Routes For Admin ---------------------------------
+route::prefix('subcategory')->group(function () {
+    Route::get('/view', [SubCategoryController::class, 'ViewSubCategories'])->name('view.subcategory');
+    Route::get('/add', [SubCategoryController::class, 'ViewAddSubCategory'])->name('view.add.subcategory');
+    Route::post('/added', [SubCategoryController::class, 'AddSubCategory'])->name('add.subcategory');
+    Route::get('/update/{id}', [SubCategoryController::class, 'ViewUpdateSubCategory'])->name('view.update.subcategory');
+    Route::post('/updated/{id}', [SubCategoryController::class, 'UpdateSubCategory'])->name('update.subcategory');
+    Route::get('/delete/{id}', [SubCategoryController::class, 'DeleteSubCategory'])->name('delete.subcategory');
+});
+
+// ---------------------- Sub Sub Categories Routes For Admin ---------------------------------
+route::prefix('sub-subcategory')->group(function () {
+    Route::get('/view', [SubSubCategoryController::class, 'ViewSubSubCategories'])->name('view.subsubcategory');
+    Route::get('/ajax/{category_id}', [SubSubCategoryController::class, 'GetSubCategory']);
+    Route::post('/added', [SubSubCategoryController::class, 'AddSubSubCategory'])->name('add.subsubcategory');
+    Route::get('/update/{id}', [SubSubCategoryController::class, 'ViewUpdateSubSubCategory'])->name('view.update.subsubcategory');
+    Route::post('/updated/{id}', [SubSubCategoryController::class, 'UpdateSubSubCategory'])->name('update.subsubcategory');
+    Route::get('/delete/{id}', [SubSubCategoryController::class, 'DeleteSubSubCategory'])->name('delete.subsubcategory');
 });

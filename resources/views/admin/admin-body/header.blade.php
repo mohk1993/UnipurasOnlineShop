@@ -14,7 +14,7 @@
                         <i class="nav-link-icon mdi mdi-crop-free"></i>
                     </a>
                 </li>
-                <li class="btn-group nav-item d-none d-xl-inline-block">
+                <!-- <li class="btn-group nav-item d-none d-xl-inline-block">
                     <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
                         <i class="ti-check-box"></i>
                     </a>
@@ -23,7 +23,7 @@
                     <a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
                         <i class="ti-calendar"></i>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
 
@@ -120,11 +120,11 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
                         <i class="ti-settings"></i>
                     </a>
-                </li>
+                </li> -->
 
             </ul>
         </div>

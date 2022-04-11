@@ -11,7 +11,6 @@
                 <a href="index.html">
                     <!-- logo for regular state and mobile devices -->
                     <div class="d-flex align-items-center justify-content-center">
-                        <img src="{{asset('admin-tmp/images/logo-dark.png')}}" alt="">
                         <h3><b>Unipuras</b> Admin</h3>
                     </div>
                 </a>
@@ -30,7 +29,7 @@
 
             <li class="treeview {{ ($prefix == '/partner')? 'active':''}}" >
                 <a href="#">
-                    <i data-feather="message-circle"></i>
+                    <i data-feather="users"></i>
                     <span>Partners</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
@@ -41,17 +40,17 @@
                 </ul>
             </li>
 
-            <li class="treeview">
+            <li class="treeview {{ ($prefix == '/caegory')? 'active':''}}">
                 <a href="#">
-                    <i data-feather="mail"></i> <span>Mailbox</span>
+                    <i data-feather="layers"></i> <span>Categories</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
-                    <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
-                    <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+                    <li class="{{ ($route == 'view.category')? 'active':''}}"><a href="{{ route('view.category') }}"><i class="ti-more"></i>Categories</a></li>
+                    <li class="{{ ($route == 'view.subcategory')? 'active':''}}"><a href="{{ route('view.subcategory') }}"><i class="ti-more"></i>SubCaegory</a></li>
+                    <li class="{{ ($route == 'view.subsubcategory')? 'active':''}}"><a href="{{ route('view.subsubcategory') }}"><i class="ti-more"></i>SubSubCaegory</a></li>
                 </ul>
             </li>
 

@@ -119,7 +119,7 @@ File: scss
 
 /*---Dark skin---*/
 body.dark-skin {
-  background-color: #1a233a;
+  background-color: rgba(255, 255, 255, 0.12);
   color: #8a99b5; }
   body.dark-skin .navbar-nav > .user-menu > .dropdown-menu > .user-body {
     border-color: rgba(255, 255, 255, 0.12); }
@@ -222,8 +222,8 @@ body.dark-skin {
   color: #8a99b5; }
 .dark-skin .box-controls li > a {
   color: #8a99b5; }
-.dark-skin .box {
-  background-color: blue; }
+.dark-skin .wrapper .content-wrapper .container-full .content .box {
+  background-color: #4e64b6 !important; }
   .dark-skin .box .box-header {
     color: blue;
     border-color: rgba(255, 255, 255, 0.12); }

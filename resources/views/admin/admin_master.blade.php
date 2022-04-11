@@ -36,15 +36,13 @@
             @yield('admin')
         </div>
         <!-- /.content-wrapper -->
-
-        <!-- Main-footer -->
-        @include('admin.admin-body.footer')
-        <!-- Main-footer -->
-
         <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
 
     </div>
+    <!-- Main-footer -->
+    @include('admin.admin-body.footer')
+    <!-- Main-footer -->
     <!-- ./wrapper -->
 
 
@@ -58,11 +56,11 @@
     <!-- Sunny Admin App -->
     <script src="{{asset('admin-tmp/js/template.js')}}"></script>
     <script src="{{asset('admin-tmp/js/pages/dashboard.js')}}"></script>
-    
+
     <!-- Data table -->
     <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
     <script src="{{ asset('admin-tmp/js/pages/data-table.js') }}"></script>
-    
+
     <!-- =================== Toster ========================================= -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @if(Session::has('message'))
@@ -86,7 +84,7 @@
     @endif
     <!-- End toster -->
 
-<!-- ============ Sweetalert ========================= -->
+    <!-- ============ Sweetalert ========================= -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
         $(function() {
