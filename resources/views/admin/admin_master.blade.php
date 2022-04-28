@@ -61,6 +61,12 @@
     <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
     <script src="{{ asset('admin-tmp/js/pages/data-table.js') }}"></script>
 
+
+    <!-- Editor CK -->
+    <script src="../assets/vendor_components/ckeditor/ckeditor.js"></script>
+	<script src="../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+	<script src="{{asset('admin-tmp/js/pages/editor.js')}}"></script>
+
     <!-- =================== Toster ========================================= -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @if(Session::has('message'))

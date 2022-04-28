@@ -9,7 +9,7 @@
                     <span aria-hidden="true">&times;</span>
                 </a>
             </div>
-            <form method="POST" action="{{ route('add.category') }}">
+            <form method="POST" action="{{ route('add.category') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 

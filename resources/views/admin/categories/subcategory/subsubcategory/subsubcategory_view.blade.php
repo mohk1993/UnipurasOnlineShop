@@ -29,8 +29,8 @@
                             <tr>
                                 <td>{{ $subcat['category']['category_name_en']}}</td>
                                 <td>{{ $subcat['subcategory']['subcategory_name_en']}}</td>
-                                <td>{{ $subcat->subsubcategory_name_en}}</td>
-                                <td>{{ $subcat->subsubcategory_name_lith}}</td>
+                                <td>{{ $subcat->sub_subcategory_name_en}}</td>
+                                <td>{{ $subcat->sub_subcategory_name_lith}}</td>
                                 <td class="d-md-flex justify-content-center">
                                     <a href="{{ route('view.update.subsubcategory',$subcat->id) }}" class="btn btn-info" title="Update Data" style="margin-right: 10px;"><i class="fa fa-pencil"></i></a>
                                     <a href="{{ route('delete.subsubcategory',$subcat->id) }}" id="delete" class="btn btn-danger" title="Delete Data"><i class="fa fa-trash"></i></a>
@@ -48,27 +48,5 @@
     <!-- /.col -->
 </div>
 @include('admin.categories.subcategory.subsubcategory.add_subsubcategory_view')
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('select[name="category_id"]').on('change', function() {
-            var category_id = $(this).val();
-            if (category_id) {
-                $.ajax({
-                    url: "{{ url('/sub-subcategory/ajax') }}/" + category_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function(date) {
-                        var d = $('select[name="subcategory_id"]').empty();
-                        $.each(data, function(key, value) {
-                            $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' +
-                                value.subcategory_name_en + '</Option>');
-                        });
-                    },
-                });
-            } else {
-                alert('danger');
-            }
-        });
-    });
-</script>
+
 @endsection

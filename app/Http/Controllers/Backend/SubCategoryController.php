@@ -41,6 +41,12 @@ class SubCategoryController extends Controller
         return view('admin.categories.subcategory.update_subcategory', compact('subcategory','categories'));
     }
 
+    public function GetSubCategory($category_id)
+    {
+        $subcategory = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name_en','ASC')->get();
+        return json_encode($subcategory);
+    }
+
     public function UpdateSubCategory(Request $request)
     {
         $subcategory_id = $request->id;

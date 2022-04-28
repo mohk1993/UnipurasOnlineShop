@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Partner;
+use App\Models\Product;
+use App\Models\ProductMultiImg;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +17,13 @@ use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
     public function index() {
-        return view('user.index');
+        $partners = Partner::latest()->get();
+        $sliders = Slider::where('slider_status',1)->orderBy('id','DESC')->limit(3)->get();
+        $products = Product::where('product_status',1)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+        return view('user.index',compact('categories','sliders','products','partners'));
     }
+   
     public function LogoutUser(){
         Auth::logout();
         return Redirect()->route('login');
@@ -69,5 +79,24 @@ class HomeController extends Controller
         }else{
             return redirect()->back();
         }
+    }
+
+    public function ProductDetails($id,$slug) {
+        $product = Product::findOrFail($id);
+        $multiImg = ProductMultiImg::where('product_id',$id)->get();
+        $categoryId = $product->category_id;
+        $similarProducts = Product::where('category_id',$categoryId)->where('id','!=',$id)->orderBy('id','DESC')->get();
+        return view('user.products.product_details',compact('product','multiImg','similarProducts'));
+    }
+
+    public function SubCategoryWiseProductView($id,$slug) {
+        $products = Product::where('product_status',1)->where('subcategory_id',$id)->orderBy('id','DESC')->paginate(3);
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+        return view('user.products.subcategory_view',compact('categories','products'));
+    }
+    public function SubSubCategoryWiseProductView($id,$slug) {
+        $products = Product::where('product_status',1)->where('sub_subcategory_id',$id)->orderBy('id','DESC')->paginate(3);
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+        return view('user.products.sub_subcategory_view',compact('categories','products'));
     }
 }

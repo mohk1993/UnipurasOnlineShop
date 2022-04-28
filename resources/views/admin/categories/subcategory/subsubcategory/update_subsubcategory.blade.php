@@ -8,7 +8,7 @@
         <!-- Basic Forms -->
         <div class="box">
             <div class="box-header with-border">
-                <h4 class="box-title">Update SubSubCategory Info</h4>
+                <h4 class="box-title">Update Sub SubCategory Info</h4>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -28,12 +28,24 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <h5>Select SubCategory<span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <select name="subcategory_id" required="" class="form-control">
+                                        <option value="" selected="" disabled="">Select Your Category</option>
+                                        @foreach($subcategories as $subcategory)
+                                        <option value="{{ $subcategory->id }}" {{ $subcategory->id == $subsubcategory->subcategory_id ? 'selected' : ''}}>{{$subcategory->subcategory_name_en}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>SubSubCategory Name EN<span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="subsubcategory_name_en" class="form-control" value="{{ $subsubcategory->subsubcategory_name_en }}" required="" data-validation-required-message="This field is required">
+                                            <input type="text" name="subsubcategory_name_en" class="form-control" value="{{ $subsubcategory->sub_subcategory_name_en }}" required="" data-validation-required-message="This field is required">
                                             <div class="help-block"></div>
                                             @error('subsubcategory_name_en')
                                             <span class="text-danger">{{$message}}</span>
@@ -43,7 +55,7 @@
                                     <div class="form-group">
                                         <h5>SubSubCategory Name Lith<span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="subsubcategory_name_lith" value="{{ $subsubcategory->subsubcategory_name_lith }}" class="form-control" required="" data-validation-required-message="This field is required">
+                                            <input type="text" name="subsubcategory_name_lith" value="{{ $subsubcategory->sub_subcategory_name_lith }}" class="form-control" required="" data-validation-required-message="This field is required">
                                             <div class="help-block"></div>
                                             @error('subsubcategory_name_lith')
                                             <span class="text-danger">{{$message}}</span>
@@ -54,15 +66,15 @@
                                         <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
                                     </div>
                                 </div>
+                            </div>
                         </form>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.col -->
+                    <!-- /.row -->
                 </div>
-                <!-- /.row -->
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+            <!-- /.box -->
 
     </section>
     <!-- /.content -->

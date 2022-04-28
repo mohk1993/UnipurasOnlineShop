@@ -1,35 +1,15 @@
+@php
+$partners = App\Models\Partner::latest()->get();
+@endphp
 <div id="brands-carousel" class="logo-slider wow fadeInUp">
     <div class="logo-slider-inner">
         <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
-            <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand1.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
+            @forelse($partners as $partner)
+            <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="{{asset($partner->partner_image)}}" src="{{asset($partner->partner_image)}}" style="width: 175px; height: 175px; border-radius: 30%;"> </a> </div>
             <!--/.item-->
-
-            <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand2.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand3.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand4.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand5.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand6.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand2.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand4.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand1.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
-
-            <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('user-tmp/assets/images/brands/brand5.png')}}" src="{{asset('user-tmp/assets/images/blank.gif')}}" alt=""> </a> </div>
-            <!--/.item-->
+            @empty
+            <h5 class="text-danger"> No Partners Avilable Now</h5>
+            @endforelse
         </div>
         <!-- /.owl-carousel #logo-slider -->
     </div>
