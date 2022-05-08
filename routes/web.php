@@ -12,9 +12,11 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LanguageController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishListController;
 use App\Models\User;
@@ -197,6 +199,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     Route::get('/wishlist', [WishListController::class, 'ViewWishlist'])->name('wishlist');
     Route::get('/get-wishlist-product', [WishListController::class, 'GetWishlistProduct']);
     Route::get('/wishlist-remove/{id}', [WishListController::class, 'RemoveWishlistProduct']);
+    // ------------ Order Management Routes -------------------------
+    Route::get('/my/orders', [OrderController::class, 'MyOrders'])->name('user.orders');
+    Route::get('/order_details/{order_id}', [OrderController::class, 'OrderDetails']);
+    Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');
 });
 // ----- Cart Get Products ---
 Route::get('/mycart', [CartController::class, 'ViewCartPage'])->name('cart');

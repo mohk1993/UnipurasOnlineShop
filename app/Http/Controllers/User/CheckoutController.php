@@ -50,7 +50,7 @@ class CheckoutController extends Controller
         } elseif ($request->payment_method == 'card') {
             return 'card';
         } else {
-            return 'cash';
+            return view('user.checkout.view_cash_payment', compact('data','totalAfterTax','cartTax','totalBeforTax'));
         }
     }
 }

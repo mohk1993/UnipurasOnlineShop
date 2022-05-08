@@ -209,7 +209,7 @@ Checkout
                                     <div class="col-md-4">
                                         <label for="">Cash</label>
                                         <input type="radio" name="payment_method" value="cash">
-                                        <img src="{{ asset('user-tmp/assets/images/payments/2.png') }}">
+                                        <img src="{{ asset('user-tmp/assets/images/payments/cash.jpg') }}" style="height: 30px; width: 60px;">
                                     </div> <!-- end col md 4 -->
                                 </div> <!-- // end row  -->
                                 <hr>
