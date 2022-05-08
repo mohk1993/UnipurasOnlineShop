@@ -6,11 +6,17 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ShipmentDistricController;
+use App\Http\Controllers\Backend\ShippingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LanguageController;
+use App\Http\Controllers\User\StripeController;
+use App\Http\Controllers\User\WishListController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -117,6 +123,33 @@ route::prefix('slider')->group(function () {
     Route::get('/active/{id}', [SliderController::class, 'ActiveSlider'])->name('slider.active');
 });
 
+// --------------------- Shipment Divisions Routes For Admin----------------------------
+route::prefix('shipment')->group(function () {
+    Route::get('/divisions/view', [ShippingController::class, 'ViewDivisions'])->name('view.divisions');
+    Route::post('/division/added', [ShippingController::class, 'AddDivision'])->name('add.division');
+    Route::get('/division/updated/view/{id}', [ShippingController::class, 'ViewUpdateDivision'])->name('view.update.division');
+    Route::post('/division/updated/{id}', [ShippingController::class, 'UpdateDivision'])->name('update.division');
+    Route::get('/division/deleted/{id}', [ShippingController::class, 'DeleteDivision'])->name('delete.division');
+});
+
+// --------------------- Shipment Districs Routes For Admin----------------------------
+route::prefix('district')->group(function () {
+    Route::get('/view', [ShipmentDistricController::class, 'ViewDistrict'])->name('view.districts');
+    Route::post('/added', [ShipmentDistricController::class, 'AddDistric'])->name('add.district');
+    Route::get('/updated/view/{id}', [ShipmentDistricController::class, 'ViewUpdateDistrict'])->name('view.update.district');
+    Route::post('/updated/{id}', [ShipmentDistricController::class, 'UpdateDistrict'])->name('update.district');
+    Route::get('/deleted/{id}', [ShipmentDistricController::class, 'DeleteDistrict'])->name('delete.district');
+});
+
+// --------------------- Shipment States Routes For Admin----------------------------
+route::prefix('state')->group(function () {
+    Route::get('/view', [ShipmentDistricController::class, 'ViewState'])->name('view.states');
+    Route::post('/added', [ShipmentDistricController::class, 'AddState'])->name('add.state');
+    Route::get('/updated/view/{id}', [ShipmentDistricController::class, 'ViewUpdateState'])->name('view.update.state');
+    Route::post('/updated/{id}', [ShipmentDistricController::class, 'UpdateState'])->name('update.state');
+    Route::get('/deleted/{id}', [ShipmentDistricController::class, 'DeleteState'])->name('delete.state');
+});
+
 }); // Auth middleware admin end
 
 
@@ -149,3 +182,33 @@ Route::get('/product/details/{id}/{slug}', [HomeController::class, 'ProductDetai
 //-----------------Subcategory Wise data- -----------------
 Route::get('/subcategory/product/{id}/{slug}', [HomeController::class, 'SubCategoryWiseProductView']);
 Route::get('/sub_subcategory/product/{id}/{slug}', [HomeController::class, 'SubSubCategoryWiseProductView']);
+
+// product cart view modal JS --------
+Route::get('/product/view/modal/{id}', [HomeController::class, 'ProductViewCartModalAjax']);
+// Add To cart -----------
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddProductToCart']);
+// ------------------------ Add Carts ----------------------
+Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
+// ----------- Remove Carts -----------------------------
+Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+// --------- Add To WishList------------------------------
+Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
+    Route::post('/add-to-wishlist/{product_id}', [WishListController::class, 'AddToWishlist']);
+    Route::get('/wishlist', [WishListController::class, 'ViewWishlist'])->name('wishlist');
+    Route::get('/get-wishlist-product', [WishListController::class, 'GetWishlistProduct']);
+    Route::get('/wishlist-remove/{id}', [WishListController::class, 'RemoveWishlistProduct']);
+});
+// ----- Cart Get Products ---
+Route::get('/mycart', [CartController::class, 'ViewCartPage'])->name('cart');
+Route::get('/user/get-cart-product', [CartController::class, 'GetCartProduct']);
+Route::get('/user/cart-remove/{id}', [CartController::class, 'CartRemove']);
+Route::get('/cart-increment/{rowId}', [CartController::class, 'CartIncrement']);
+Route::get('/cart-decrement/{rowId}', [CartController::class, 'CartDecrement']);
+// ---------- Checkout Routes - --------------
+Route::get('/checkout', [CartController::class, 'ViewCheckout'])->name('checkout');
+Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
+Route::get('/state-get/ajax/{district_id}', [CheckoutController::class, 'StateGetAjax']);
+Route::get('/state/view/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax1']);
+Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
+// ------------- Payments----------------------------
+Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');

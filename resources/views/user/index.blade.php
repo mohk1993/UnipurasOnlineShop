@@ -79,7 +79,7 @@ Metal Sheet Shop-home
                 <div id="hero">
                     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
                         @foreach($sliders as $slider)
-                        <div class="item" style="background-image: url({{ asset($slider->slider_image) }});">
+                        <div class="item" style="background-image: url('{{ asset($slider->slider_image) }}');">
                             <div class="container-fluid">
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">@if(session()->get('language') == 'lithuanian') {{$slider->slider_name_lith}} @else {{$slider->slider_name_en}} @endif</div>
@@ -184,10 +184,10 @@ Metal Sheet Shop-home
                                                     <div class="action">
                                                         <ul class="list-unstyled">
                                                             <li class="add-cart-button btn-group">
-                                                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                <button class="btn btn-primary icon" type="button" title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{ $product->id}}" onclick="productModalCartView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'lithuanian') Į krepšelį @else Add to cart @endif </button>
                                                             </li>
-                                                            <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                            <button class="btn btn-primary icon" type="button" title="WishList" id="{{ $product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
                                                             <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                                         </ul>
                                                     </div>

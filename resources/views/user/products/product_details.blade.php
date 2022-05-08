@@ -161,7 +161,7 @@
                 </div><!-- /.gallery-holder -->
                 <div class='col-sm-6 col-md-7 product-info-block'>
                     <div class="product-info">
-                        <h1 class="name">@if(session()->get('language') == 'lithuanian') {{$product->product_name_lith}} @else {{$product->product_name_en}} @endif</h1>
+                        <h1 class="name" id="productName">@if(session()->get('language') == 'lithuanian') {{$product->product_name_lith}} @else {{$product->product_name_en}} @endif</h1>
                         <div class="rating-reviews m-t-20">
                             <div class="row">
                                 <div class="col-sm-3">
@@ -192,6 +192,9 @@
                         <div class="description-container m-t-20">
                             @if(session()->get('language') == 'lithuanian') {{$product->product_short_dic_lith}} @else {{$product->product_short_dic_en}} @endif
                         </div><!-- /.description-container -->
+                        <div class="description-container m-t-20" id="code">Code:
+                            @if(session()->get('language') == 'lithuanian') {{$product->product_code}} @else {{$product->product_code}} @endif
+                        </div><!-- /.description-container -->
 
                         <div class="price-container info-container m-t-20">
                             <div class="row">
@@ -199,7 +202,7 @@
 
                                 <div class="col-sm-6">
                                     <div class="price-box">
-                                        <span class="price">@if(session()->get('language') == 'lithuanian') {{$product->product_price}} @else {{$product->product_price}} @endif</span>
+                                        <span class="price" id="productPrice">@if(session()->get('language') == 'lithuanian') {{$product->product_price}} @else {{$product->product_price}} @endif</span>
                                     </div>
                                 </div>
 
@@ -230,17 +233,13 @@
                                 <div class="col-sm-2">
                                     <div class="cart-quantity">
                                         <div class="quant-input">
-                                            <div class="arrows">
-                                                <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-                                            </div>
-                                            <input type="text" value="1">
+                                            <input type="number" value="1" id="qty" min="1">
                                         </div>
                                     </div>
                                 </div>
-
+                                    <input type="hidden" id="product_id" value="{{ $product->id}}" min="1">
                                 <div class="col-sm-7">
-                                    <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                    <button type="submit" onclick="addToCart()" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
                                 </div>
 
 

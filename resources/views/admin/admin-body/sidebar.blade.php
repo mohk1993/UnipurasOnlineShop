@@ -78,6 +78,24 @@
                     <li class="{{ ($route == 'view.sliders')? 'active':''}}"><a href="{{ route('view.sliders') }}"><i class="ti-more"></i>Sliders</a></li>
                 </ul>
             </li>
+            <li class="treeview  {{ ($prefix == '/shipment')? 'active':''}}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Shipments</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'view.divisions')? 'active':''}}"><a href="{{ route('view.divisions') }}"><i class="ti-more"></i>Manage Divisions</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'view.districts')? 'active':''}}"><a href="{{ route('view.districts') }}"><i class="ti-more"></i>Manage Districts</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'view.states')? 'active':''}}"><a href="{{ route('view.states') }}"><i class="ti-more"></i>Manage States</a></li>
+                </ul>
+            </li>
 
             <li class="header nav-small-cap">User Interface</li>
 

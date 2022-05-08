@@ -99,4 +99,11 @@ class HomeController extends Controller
         $categories = Category::orderBy('category_name_en','ASC')->get();
         return view('user.products.sub_subcategory_view',compact('categories','products'));
     }
+
+    public function ProductViewCartModalAjax($id) {
+        $product = Product::findOrFail($id);
+        return response()->json(array(
+            'product' => $product,
+        ));
+    }
 }
