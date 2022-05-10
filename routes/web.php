@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\AdmiOrderController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\OrderController as BackendOrderController;
 use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShipmentDistricController;
@@ -151,6 +153,24 @@ route::prefix('state')->group(function () {
     Route::post('/updated/{id}', [ShipmentDistricController::class, 'UpdateState'])->name('update.state');
     Route::get('/deleted/{id}', [ShipmentDistricController::class, 'DeleteState'])->name('delete.state');
 });
+// --------------------- Orders Routes For Admin----------------------------
+route::prefix('orders')->group(function () {
+    Route::get('/pending-orders', [AdmiOrderController::class, 'ViewPendingOrders'])->name('view.pending.orders');
+    Route::get('/pending-order/details/{id}', [AdmiOrderController::class, 'ViewPendingOrderDetails'])->name('pending.order.details');
+    Route::get('/processing-order', [AdmiOrderController::class, 'ViewProcessingOrders'])->name('view.processing.orders');
+    Route::get('/confirmed-order', [AdmiOrderController::class, 'ViewConfirmedOrders'])->name('view.confirmed.orders');
+    Route::get('/cancelled-order', [AdmiOrderController::class, 'ViewCanceledOrders'])->name('view.canceled.orders');
+    Route::get('/delivered-order', [AdmiOrderController::class, 'ViewDeliveredOrders'])->name('view.delivered.orders');
+    Route::get('/shipped-order', [AdmiOrderController::class, 'ViewShippedOrders'])->name('view.shipped.orders');
+    Route::get('/confirm-status/{id}', [AdmiOrderController::class, 'ConfirmOrder'])->name('confirm.order');
+    Route::get('/processed-status/{id}', [AdmiOrderController::class, 'ProcessOrder'])->name('process.order');
+    Route::get('/shipped-status/{id}', [AdmiOrderController::class, 'ShipOrder'])->name('ship.order');
+    Route::get('/deliverd-status/{id}', [AdmiOrderController::class, 'DeliverdOrder'])->name('delivered.order');
+    Route::get('/cancelled-status/{id}', [AdmiOrderController::class, 'CancelleddOrder'])->name('cancel.order');
+    Route::get('/download-invoice/{id}', [AdmiOrderController::class, 'DownloadInvoiceAdmin'])->name('admin.download.invoice');
+});
+
+
 
 }); // Auth middleware admin end
 
@@ -202,6 +222,7 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     // ------------ Order Management Routes -------------------------
     Route::get('/my/orders', [OrderController::class, 'MyOrders'])->name('user.orders');
     Route::get('/order_details/{order_id}', [OrderController::class, 'OrderDetails']);
+    Route::get('/invoice/{order_id}', [OrderController::class, 'InvoiceDownload']);
     Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');
 });
 // ----- Cart Get Products ---

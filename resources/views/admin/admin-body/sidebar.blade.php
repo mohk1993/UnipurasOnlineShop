@@ -99,19 +99,22 @@
 
             <li class="header nav-small-cap">User Interface</li>
 
-            <li class="treeview">
+            <li class="treeview  {{ ($prefix == '/orders')? 'active':''}}">
                 <a href="#">
-                    <i data-feather="grid"></i>
-                    <span>Components</span>
+                    <i data-feather="file"></i>
+                    <span>Manage Orders</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-                    <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
-                    <li><a href="components_buttons.html"><i class="ti-more"></i>Buttons</a></li>
-                    </ul>
+                    <li class="{{ ($route == 'view.pending.orders')? 'active':''}}"><a href="{{ route('view.pending.orders') }}"><i class="ti-more"></i>Pending Orders</a></li>
+                    <li class="{{ ($route == 'view.confirmed.orders')? 'active':''}}"><a href="{{ route('view.confirmed.orders') }}"><i class="ti-more"></i>Confirmed Orders</a></li>
+                    <li class="{{ ($route == 'view.processing.orders')? 'active':''}}"><a href="{{ route('view.processing.orders') }}"><i class="ti-more"></i>Processing Orders</a></li>
+                    <li class="{{ ($route == 'view.shipped.orders')? 'active':''}}"><a href="{{ route('view.shipped.orders') }}"><i class="ti-more"></i>Shiped Orders</a></li>
+                    <li class="{{ ($route == 'view.delivered.orders')? 'active':''}}"><a href="{{ route('view.delivered.orders') }}"><i class="ti-more"></i>Delivered Orders</a></li>
+                    <li class="{{ ($route == 'view.canceled.orders')? 'active':''}}"><a href="{{ route('view.canceled.orders') }}"><i class="ti-more"></i>Canceled Orders</a></li>
+                </ul>
             </li>
 
             <li class="treeview">
