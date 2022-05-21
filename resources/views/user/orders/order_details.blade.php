@@ -122,13 +122,13 @@
             </div>
         </div> <!-- / end col md 8 -->
     </div> <!-- // END ORDER ITEM ROW -->
-    @if($order->status !== "delivered")
+    <!-- @if($order->status !== "delivered")
 
     @else
     <div class="form-group">
         <label for="label"> Order Return</label>
         <textarea name="return_reason" id="" class="from-control" cols="30" rows="10"></textarea>
     </div>
-    @endif
+    @endif -->
 </div>
 @endsection

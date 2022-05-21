@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\OrderController as BackendOrderController;
 use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShipmentDistricController;
 use App\Http\Controllers\Backend\ShippingController;
 use App\Http\Controllers\Backend\SliderController;
@@ -65,6 +66,12 @@ route::prefix('partner')->group(function () {
     Route::get('/update/{id}', [PartnerController::class, 'ViewUpdatePartner'])->name('view.update.partner');
     Route::post('/updated/{id}', [PartnerController::class, 'UpdatePartner'])->name('update.partner');
     Route::get('/delete/{id}', [PartnerController::class, 'DeletePartner'])->name('view.delete.partner');
+});
+// ----------------- Reports Routes Admin -----------------------------
+route::prefix('reports')->group(function () {
+    Route::get('/view', [ReportController::class, 'ViewReports'])->name('view.reports');
+    Route::get('/view/users', [ReportController::class, 'ViewUsers'])->name('view.users');
+    Route::post('/search', [ReportController::class, 'SearchByDate'])->name('date.search');
 });
 
 // ---------------------- Categories Routes For Admin ---------------------------------

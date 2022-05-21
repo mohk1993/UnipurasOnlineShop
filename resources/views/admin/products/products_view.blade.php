@@ -6,6 +6,7 @@
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Our Products</h3>
+                <span class="badge badge-pill badge-success">{{count($products)}}</span>
                 <div class="d-md-flex justify-content-md-end">
                     <a href="{{ route('view.add.product') }}" class="btn btn-primary">Add Product</a>
                 </div>
