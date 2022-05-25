@@ -11,7 +11,7 @@
 
     <title>Unipuras Admin - Dashboard</title>
 
-    <!-- Vendors Style-->
+    
     <link rel="stylesheet" href="{{ asset('admin-tmp/css/vendors_css.css') }}">
 
     <!-- Style-->
@@ -46,14 +46,14 @@
     <!-- ./wrapper -->
 
 
-    <!-- Vendor JS -->
+    
     <script src="{{asset('admin-tmp/js/vendors.min.js')}}"></script>
     <script src="{{asset('../assets/icons/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
     <script src="{{asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
     <script src="{{asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
 
-    <!-- Sunny Admin App -->
+    
     <script src="{{asset('admin-tmp/js/template.js')}}"></script>
     <script src="{{asset('admin-tmp/js/pages/dashboard.js')}}"></script>
 
