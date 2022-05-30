@@ -120,7 +120,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Quantity</label>
-                                <input type="number" class="form-control" id="qty" aria-describedby="emailHelp" value="1" min="1">
+                                <input type="number" class="form-control" id="qty" aria-describedby="emailHelp" value="1" min="1" oninput="validity.valid||(value='');">
                             </div>
                         </div>
                         <div class="col-md-6">

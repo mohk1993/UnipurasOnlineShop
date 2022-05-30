@@ -11,6 +11,7 @@ use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -105,5 +106,11 @@ class HomeController extends Controller
         return response()->json(array(
             'product' => $product,
         ));
+    }
+
+    public function SearchForProduct(Request $request) {
+        $item = $request->search;
+        $products = DB::table('products')->where('product_name_en','LIKE',"%$item%")->paginate(20);
+        return view('user.search.search',compact('products'));
     }
 }

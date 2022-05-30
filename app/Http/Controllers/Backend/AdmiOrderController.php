@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdmiOrderController extends Controller
 {
@@ -48,6 +50,11 @@ class AdmiOrderController extends Controller
     }
 
     public function ConfirmOrder($id) {
+        $order_detalis = OrderItem::where('order_id',$id)->get();
+
+        foreach($order_detalis as $row){
+            DB::table('products')->where('id',$row->product_id)->update(['product_qty' => DB::raw('product_qty-'.$row->qty)]);
+        }
         Order::findOrFail($id)->update(['status' => 'confirmed']);
 
         $notifications = array(

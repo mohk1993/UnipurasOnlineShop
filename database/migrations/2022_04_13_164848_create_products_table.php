@@ -31,8 +31,8 @@ class CreateProductsTable extends Migration
             $table->string('product_price');
             $table->string('product_short_dic_en');
             $table->string('product_short_dic_lith');
-            $table->string('product_long_dic_en')->nullable();
-            $table->string('product_long_dic_lith')->nullable();
+            $table->text('product_long_dic_en')->nullable();
+            $table->text('product_long_dic_lith')->nullable();
             $table->integer('product_status')->default(0);
             $table->string('product_thambnail');
             $table->string('length')->nullable();

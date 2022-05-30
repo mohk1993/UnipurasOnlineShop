@@ -3,7 +3,7 @@
 
 <div class="content-header">
     <div class="col-12">
-        @if($order->status == 'pending')
+        @if($order->status == 'Pending')
         <div class="d-md-flex justify-content-md-end">
             <a href="{{ route('confirm.order',$order->id)}}" class="btn btn-primary btn-round btn-block" id="confirm" style="margin-bottom:10px;">Confirm Order</a>
             <a href="{{ route('cancel.order',$order->id)}}" class="btn btn-primary btn-round btn-block" id="cancelled" style="margin-bottom:10px;">Cancel Order</a>

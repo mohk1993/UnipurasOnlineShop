@@ -200,9 +200,11 @@ Route::post('/user/profile/passwordUpdated', [HomeController::class, 'UpdateUser
 
 // ------------------------ User Home Routes -----------------------------
 Route::get('/', [HomeController::class, 'index']);
+// -------------------- Search Route -------------------------
+Route::post('/product/search', [HomeController::class, 'SearchForProduct'])->name('search.product');
+
 
 //---------------- Multi Language Routes ---------------------------------
-Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
 Route::get('/language/lithuanian', [LanguageController::class, 'Lithuanian'])->name('lithuanian.language');
 
 //---------------------- Product details route -------------------------
@@ -228,6 +230,7 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     Route::get('/wishlist-remove/{id}', [WishListController::class, 'RemoveWishlistProduct']);
     // ------------ Order Management Routes -------------------------
     Route::get('/my/orders', [OrderController::class, 'MyOrders'])->name('user.orders');
+    Route::get('/new/order/request', [OrderController::class, 'RequestNewProductView'])->name('request.new.product.view');
     Route::get('/order_details/{order_id}', [OrderController::class, 'OrderDetails']);
     Route::get('/invoice/{order_id}', [OrderController::class, 'InvoiceDownload']);
     Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');

@@ -6,8 +6,8 @@ $user = App\Models\User::find($id);
 <div class="card mb-3" style="max-width: 540px;">
     <div class="col-md-4">
         <img src="{{ (!empty($user->profile_photo_path))
-                                        ?url('user-images/'.$user->profile_photo_path)
-                                        :url('user-images/blank_profile_picture.png') }}" class="img-fluid rounded-start" alt="..." style="width: 150px; height: 250px; border-radius: 50%;">
+                                        ?asset('user-images/'.$user->profile_photo_path)
+                                        :asset('user-images/profileImage.png') }}" class="img-fluid rounded-start" alt="..." style="width: 150px; height: 250px; border-radius: 50%;">
     </div>
     <div class="col-md-4">
         <ul class="list-group list-group-flush">

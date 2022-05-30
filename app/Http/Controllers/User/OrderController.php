@@ -20,6 +20,11 @@ class OrderController extends Controller
 
     }
 
+    public function RequestNewProductView() {
+        
+        return view('user.orders.request_new_product');
+    }
+
     public function OrderDetails($order_id){
         $totalAfterTax = Cart::total();
         $cartTax = Cart::tax();

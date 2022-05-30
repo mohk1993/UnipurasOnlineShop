@@ -5,7 +5,14 @@ $partners = App\Models\Partner::latest()->get();
     <div class="logo-slider-inner">
         <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
             @forelse($partners as $partner)
-            <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="{{asset($partner->partner_image)}}" src="{{asset($partner->partner_image)}}" style="width: 175px; height: 175px; border-radius: 30%;"> </a> </div>
+            <div class="col-sm-3">
+                <div class="item m-t-15">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{asset($partner->partner_image)}}" class="card-img-top" alt="..." style="width: 175px; height: 175px; border-radius: 30%;">
+                    </div>
+                    <!-- <a href="#" class="image"> <img data-echo="{{asset($partner->partner_image)}}" src="{{asset($partner->partner_image)}}" style="width: 175px; height: 175px; border-radius: 30%;"> </a> -->
+                </div>
+            </div>
             <!--/.item-->
             @empty
             <h5 class="text-danger"> No Partners Avilable Now</h5>

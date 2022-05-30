@@ -15,118 +15,13 @@
 
 
 
-            <!-- ============================================== HOT DEALS ============================================== -->
             <div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
                 <h3 class="section-title">Details</h3>
                 <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
 
-                    <!-- <div class="item">
-                        <div class="products">
-                            <div class="hot-deal-wrapper">
-                                <div class="image">
-                                    <img src="assets/images/hot-deals/p5.jpg" alt="">
-                                </div>
-                                <div class="sale-offer-tag"><span>35%<br>off</span></div>
-                                <div class="timing-wrapper">
-                                    <div class="box-wrapper">
-                                        <div class="date box">
-                                            <span class="key">120</span>
-                                            <span class="value">Days</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="box-wrapper">
-                                        <div class="hour box">
-                                            <span class="key">20</span>
-                                            <span class="value">HRS</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="box-wrapper">
-                                        <div class="minutes box">
-                                            <span class="key">36</span>
-                                            <span class="value">MINS</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="box-wrapper hidden-md">
-                                        <div class="seconds box">
-                                            <span class="key">60</span>
-                                            <span class="value">SEC</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-info text-left m-t-20">
-                                <h3 class="name"><a href="detail.html">@if(session()->get('language') == 'lithuanian') {{$product->product_name_lith}} @else {{$product->product_name_en}} @endif</a></h3>
-                                <div class="rating rateit-small"></div>
-
-                                <div class="product-price">
-                                    <span class="price">
-                                        $600.00
-                                    </span>
-
-                                    <span class="price-before-discount">$800.00</span>
-
-                                </div>
-
-                            </div>
-
-                            <div class="cart clearfix animate-effect">
-                                <div class="action">
-
-                                    <div class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary cart-btn" type="button">Add to
-                                            cart</button>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-
                 </div>
             </div>
-            <!-- ============================================== HOT DEALS: END ============================================== -->
-
-            <!-- ============================================== NEWSLETTER ============================================== -->
-            <!-- <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
-                <h3 class="section-title">Newsletters</h3>
-                <div class="sidebar-widget-body outer-top-xs">
-                    <p>Sign Up for Our Newsletter!</p>
-                    <form>
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
-                        </div>
-                        <button class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div> -->
-            <!-- ============================================== NEWSLETTER: END ============================================== -->
-
-            <!-- ============================================== Testimonials============================================== -->
-            <!-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
-                <div id="advertisement" class="advertisement">
-                    <div class="item">
-                        <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image">
-                        </div>
-                        <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                            mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                        <div class="clients_author">John Doe <span>Abc Company</span> </div>
-                    </div>
-
-                </div>
-            </div> -->
-
-            <!-- ============================================== Testimonials: END ============================================== -->
-
+          
         </div>
     </div><!-- /.sidebar -->
     <div class='col-md-9'>
@@ -233,7 +128,7 @@
                                 <div class="col-sm-2">
                                     <div class="cart-quantity">
                                         <div class="quant-input">
-                                            <input type="number" value="1" id="qty" min="1">
+                                            <input type="number" value="1" id="qty" min="1" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                 </div>

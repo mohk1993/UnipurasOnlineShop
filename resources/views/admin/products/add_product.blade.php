@@ -154,7 +154,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <h5>Product Height</h5>
                                                 <div class="controls">
                                                     <input type="text" name="height" class="form-control">
@@ -180,9 +180,9 @@
                                                     <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <h5>Matirial Thickness <span class="text-danger">*</span></h5>
                                                 <div class="controls">
@@ -220,7 +220,7 @@
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
