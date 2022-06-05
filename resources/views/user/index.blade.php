@@ -13,7 +13,7 @@ Metal Sheet Shop-home
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 @include('user.body.side_navigation')
                 <!-- /.side-menu -->
-              
+
                 <!-- <div class="home-banner"> <img src="{{asset('user-tmp/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div> -->
             </div>
             <!-- /.sidemenu-holder -->
@@ -31,7 +31,7 @@ Metal Sheet Shop-home
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">@if(session()->get('language') == 'lithuanian') {{$slider->slider_name_lith}} @else {{$slider->slider_name_en}} @endif</div>
                                     <div class="excerpt fadeInDown-2 hidden-xs"> <span> @if(session()->get('language') == 'lithuanian') {{$slider->slider_Discription}} @else {{$slider->slider_Discription}} @endif</span> </div>
-                                    <div class="button-holder fadeInDown-3"> <a href="{{route('request.new.product.view')}}" class="btn-lg btn btn-uppercase btn-primary shop-now-button">@if(session()->get('language') == 'lithuanian') Specialus užsakymas @else   Special Order @endif</a> </div>
+                                    <div class="button-holder fadeInDown-3"> <a href="{{route('request.new.product.view')}}" class="btn-lg btn btn-uppercase btn-primary shop-now-button">@if(session()->get('language') == 'lithuanian') Specialus užsakymas @else Special Order @endif</a> </div>
                                 </div>
                                 <!-- /.caption -->
                             </div>
@@ -141,7 +141,7 @@ Metal Sheet Shop-home
                                                 <!-- /.product-info -->
                                                 <div class="cart clearfix animate-effect">
                                                     <div class="action">
-                                                    <ul class="list-unstyled">
+                                                        <ul class="list-unstyled">
                                                             <li class="add-cart-button btn-group">
                                                                 <button class="btn btn-primary icon" type="button" title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{ $product->id}}" onclick="productModalCartView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                                                 <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'lithuanian') Į krepšelį @else Add to cart @endif </button>

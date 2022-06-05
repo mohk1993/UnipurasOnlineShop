@@ -206,6 +206,7 @@ Route::post('/product/search', [HomeController::class, 'SearchForProduct'])->nam
 
 //---------------- Multi Language Routes ---------------------------------
 Route::get('/language/lithuanian', [LanguageController::class, 'Lithuanian'])->name('lithuanian.language');
+Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
 
 //---------------------- Product details route -------------------------
 Route::get('/product/details/{id}/{slug}', [HomeController::class, 'ProductDetails']);

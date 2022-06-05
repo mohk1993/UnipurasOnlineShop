@@ -11,10 +11,10 @@ $user = App\Models\User::find($id);
     </div>
     <div class="col-md-4">
         <ul class="list-group list-group-flush">
-            <a href="{{ route('user.orders')}}" class="btn btn-primary btn-block">My Orders</a>
-            <a href="{{ route('user.profile')}}" class="btn btn-primary btn-block">Profile Settings</a>
-            <a href="{{ route('view.user.update.password')}}" class="btn btn-primary btn-block">Change Password</a>
-            <a href="{{ route('user.logout') }}" class="btn btn-danger btn-block">Logout</a>
+            <a href="{{ route('user.orders')}}" class="btn btn-primary btn-block">@if(session()->get('language') == 'lithuanian') Mano užsakymai @else My Orders @endif</a>
+            <a href="{{ route('user.profile')}}" class="btn btn-primary btn-block">@if(session()->get('language') == 'lithuanian') Profilio nustatymai @else Profile Settings @endif</a>
+            <a href="{{ route('view.user.update.password')}}" class="btn btn-primary btn-block">@if(session()->get('language') == 'lithuanian') Keisti slaptažodį @else Change Password @endif</a>
+            <a href="{{ route('user.logout') }}" class="btn btn-danger btn-block">@if(session()->get('language') == 'lithuanian') Atsijungimas @else Logout @endif</a>
         </ul>
     </div>
 </div>

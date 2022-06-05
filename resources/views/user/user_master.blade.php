@@ -108,9 +108,9 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="list-group">
-                                <li class="list-group-item">Code: <strong id="productCode"></strong></li>
-                                <li class="list-group-item">Price: <strong id="productPrice"></strong></li>
-                                <li class="list-group-item">Stock: <span class="badge badge-pill badge-success" id="aviable" style="background: green; color: white;"></span>
+                                <li class="list-group-item">@if(session()->get('language') == 'lithuanian') Kodas @else Code @endif : <strong id="productCode"></strong></li>
+                                <li class="list-group-item">@if(session()->get('language') == 'lithuanian') Kaina @else Price @endif : <strong id="productPrice"></strong></li>
+                                <li class="list-group-item">@if(session()->get('language') == 'lithuanian') Atsargos @else Stock @endif : <span class="badge badge-pill badge-success" id="aviable" style="background: green; color: white;"></span>
                                     <span class="badge badge-pill badge-danger" id="stockout" style="background: red; color: white;"></span>
                                 </li>
                             </ul>
@@ -119,13 +119,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Quantity</label>
+                                <label for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') Kiekis @else Quantity @endif</label>
                                 <input type="number" class="form-control" id="qty" aria-describedby="emailHelp" value="1" min="1" oninput="validity.valid||(value='');">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <input type="hidden" id="product_id">
-                            <button type="submit" class="btn btn-primary" onclick="addToCart()">Add to cart</button>
+                            <button type="submit" class="btn btn-primary" onclick="addToCart()">@if(session()->get('language') == 'lithuanian') Į krepšelį @else Add to cart @endif</button>
                         </div>
                     </div>
                 </div>
@@ -202,6 +202,7 @@
                         })
                     } else {
                         Toast.fire({
+                            icon: 'error',
                             type: 'error',
                             title: data.error
                         })
@@ -269,6 +270,7 @@
                         })
                     } else {
                         Toast.fire({
+                            icon: 'error',
                             type: 'error',
                             title: data.error
                         })

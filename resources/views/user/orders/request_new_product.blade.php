@@ -3,6 +3,7 @@
 
 <div class="body-content">
     <div class="container">
+        <h2> <span class="text-danger">@if(session()->get('language') == 'lithuanian') Dirbame prie šios funkcijos, kad galėtume padėti jums pritaikyti užsakymus. Atkreipkite dėmesį, kad dabar šiame puslapyje negalite atlikti jokių veiksmų. @else We are working on this function to help you customize your orders. Please note that you can not take any action on this page now. @endif</span> </h2>
         <div class="checkout-box ">
             <div class="row">
                 <div class="col-md-12">

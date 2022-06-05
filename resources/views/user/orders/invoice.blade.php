@@ -74,19 +74,19 @@
     <tr>
         <td>
           <p class="font" style="margin-left: 20px;">
-           <strong>Name:</strong> {{ $order->name }} <br>
-           <strong>Email:</strong> {{ $order->email }} <br>
-           <strong>Phone:</strong> {{ $order->phone }} <br>
+           <strong>@if(session()->get('language') == 'lithuanian') Pavadinimas @else Name @endif:</strong> {{ $order->name }} <br>
+           <strong>@if(session()->get('language') == 'lithuanian') El. paštas @else Email @endif:</strong> {{ $order->email }} <br>
+           <strong>@if(session()->get('language') == 'lithuanian') Telefonas @else Phone @endif:</strong> {{ $order->phone }} <br>
             
-           <strong>Address:</strong> {{ $order->division->shipment_name }} <br>
-           <strong>Post Code:</strong> {{ $order->post_code }}
+           <strong>@if(session()->get('language') == 'lithuanian') Adresas @else Address @endif:</strong> {{ $order->division->shipment_name }} <br>
+           <strong>@if(session()->get('language') == 'lithuanian') Pašto kodas @else Post Code @endif:</strong> {{ $order->post_code }}
          </p>
         </td>
         <td>
           <p class="font">
-            <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no }}</h3>
-            Order Date: {{ $order->order_date }} <br>
-            Payment Type : {{ $order->payment_method }} </span>
+            <h3><span style="color: green;">@if(session()->get('language') == 'lithuanian') Sąskaita faktūra @else Invoice @endif:</span> #{{ $order->invoice_no }}</h3>
+            @if(session()->get('language') == 'lithuanian') Užsakymo data @else Order Date @endif: {{ $order->order_date }} <br>
+            @if(session()->get('language') == 'lithuanian') Mokėjimo tipas @else Payment Type @endif : {{ $order->payment_method }} </span>
          </p>
         </td>
     </tr>
@@ -98,13 +98,13 @@
   <table width="100%">
     <thead style="background-color: green; color:#FFFFFF;">
       <tr class="font">
-        <th>Image</th>
-        <th>Product Name</th>
-        <th>Code</th>
-        <th>Quantity</th>
-        <th>Unit Price </th>
-        <th> Tax</th>
-        <th>Total </th>
+        <th>@if(session()->get('language') == 'lithuanian') Vaizdas @else Image @endif</th>
+        <th>@if(session()->get('language') == 'lithuanian') Produkto pavadinimas @else Product Name @endif</th>
+        <th>@if(session()->get('language') == 'lithuanian') Kodas @else Code @endif</th>
+        <th>@if(session()->get('language') == 'lithuanian') Kiekis @else Quantity @endif</th>
+        <th>@if(session()->get('language') == 'lithuanian') Vieneto kaina @else Unit Price @endif </th>
+        <th> @if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif</th>
+        <th>@if(session()->get('language') == 'lithuanian') Iš viso @else Total @endif </th>
       </tr>
     </thead>
     <tbody>
@@ -128,10 +128,10 @@
   <table width="100%" style=" padding:0 10px 0 10px;">
     <tr>
         <td align="right" >
-            <h2><span style="color: green;">Total befor tax:</span> {{($item->price * $item->qty)}}</h2>
-            <h2><span style="color: green;">Tax:</span> €{{ ($item->price * $item->qty)*0.05 }}</h2>
-            <h2><span style="color: green;">Total after tax:</span> €{{ (($item->price * $item->qty)*0.05) + ($item->price * $item->qty) }}</h2>
-            {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
+            <h2><span style="color: green;">@if(session()->get('language') == 'lithuanian') Iš viso prieš mokesčius @else Total befor tax @endif:</span> {{($item->price * $item->qty)}}</h2>
+            <h2><span style="color: green;">@if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif:</span> €{{ ($item->price * $item->qty)*0.05 }}</h2>
+            <h2><span style="color: green;">@if(session()->get('language') == 'lithuanian') Iš viso po mokesčių @else Total after tax @endif:</span> €{{ (($item->price * $item->qty)*0.05) + ($item->price * $item->qty) }}</h2>
+            {{-- <h2><span style="color: green;">@if(session()->get('language') == 'lithuanian') Visas mokėjimas @else Full Payment @endif</h2> --}}
         </td>
     </tr>
   </table>

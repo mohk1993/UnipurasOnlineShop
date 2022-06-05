@@ -9,8 +9,8 @@ Cash
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
-                <li class='active'>Cash</li>
+                <li><a href="home.html">@if(session()->get('language') == 'lithuanian') Pagrindinis @else Home @endif</a></li>
+                <li class='active'>@if(session()->get('language') == 'lithuanian') Grynieji pinigai @else Cash @endif</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
     </div><!-- /.container -->
@@ -24,20 +24,20 @@ Cash
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="unicase-checkout-title">Proceed To Order</h4>
+                            <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Pereiti prie užsakymo @else Proceed To Order @endif</h4>
                         </div>
                         <div class="">
                             <ul class="nav nav-checkout-progress list-unstyled">
                                 <li>
-                                    <strong>Grand Total Befor Tax : </strong> ${{ $totalBeforTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Bendra suma prieš mokesčius @else Grand Total Befor Tax @endif : </strong> ${{ $totalBeforTax }}
                                 </li>
                                 <hr>
                                 <li>
-                                    <strong>Tax: </strong> ${{ $cartTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif: </strong> ${{ $cartTax }}
                                 </li>
                                 <hr>
                                 <li>
-                                    <strong>Grand Total After Tax : </strong> ${{ $totalAfterTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Bendra suma po mokesčių @else Grand Total After Tax @endif : </strong> ${{ $totalAfterTax }}
                                     <hr>
                                 </li>
                             </ul>
@@ -53,7 +53,7 @@ Cash
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="unicase-checkout-title">Order ans Checkout</h4>
+                            <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Užsakymas ir užsakymas @else Order and Checkout @endif</h4>
                         </div>
 
                         <form action="{{ route('cash.order') }}" method="post" id="payment-form">
@@ -73,7 +73,7 @@ Cash
 
                             </div>
                             <br>
-                            <button class="btn btn-primary">Order</button>
+                            <button class="btn btn-primary">@if(session()->get('language') == 'lithuanian') Užsisakykite @else Order @endif</button>
                         </form>
                     </div>
                 </div>

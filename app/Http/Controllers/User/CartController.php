@@ -17,10 +17,18 @@ class CartController extends Controller
         if (Cart::total() > 0) {
             return view('user.wishlist.view_cart');
         } else {
-            $notification = array(
-                'message' => 'Ops!... yor cart is empty :)',
-                'alert-type' => 'info'
-            );
+            if(session()->get('language') == 'lithuanian'){
+                $notification = array(
+                    'message' => 'Ops!.... jūsų krepšelis tuščias. :)',
+                    'alert-type' => 'info'
+                );
+            }else{
+                $notification = array(
+                    'message' => 'Ops!... yor cart is empty :)',
+                    'alert-type' => 'info'
+                );
+            }
+           
             return redirect()->back()->with($notification);
         }
     }
@@ -57,9 +65,15 @@ class CartController extends Controller
                     'image' => $product->product_thambnail,
                 ],
             ]);
+            if(session()->get('language') == 'lithuanian'){
+                return response()->json(['success' => 'Pridėta į krepšelį']);
+            }
             return response()->json(['success' => 'Added to your cart']);
         } else {
-            return response()->json(['error' => 'Sorry this product is not available now!']);
+            if(session()->get('language') == 'lithuanian'){
+                return response()->json(['error' => 'Atsiprašome, kad šios sumos dabar nėra!']);
+            }
+            return response()->json(['error' => 'Sorry this amount is not available now!']);
         }
     }
 
@@ -81,11 +95,17 @@ class CartController extends Controller
     public function RemoveMiniCart($rowId)
     {
         Cart::remove($rowId);
+        if(session()->get('language') == 'lithuanian'){
+            return response()->json(['error' => 'Produktas pašalintas iš krepšelio']);
+        }else
         return response()->json(['success' => 'Product Removed from Cart']);
     }
     public function CartRemove($rowId)
     {
         Cart::remove($rowId);
+        if(session()->get('language') == 'lithuanian'){
+            return response()->json(['error' => 'Produktas pašalintas iš krepšelio']);
+        }else
         return response()->json(['success' => 'Product Removed from Cart']);
     }
 
@@ -117,11 +137,17 @@ class CartController extends Controller
             $divisions = Shipment::orderBy('shipment_name', 'ASC')->get();
             return view('user.checkout.view_checkout', compact('carts', 'cartQty', 'totalBeforTax', 'cartTax', 'totalAfterTax', 'divisions'));
         } else {
-            $notification = array(
-                'message' => 'Ops!... yor cart is empty :)',
-                'alert-type' => 'info'
-            );
-
+            if(session()->get('language') == 'lithuanian'){
+                $notification = array(
+                    'message' => 'Ops!.... jūsų krepšelis tuščias. :)',
+                    'alert-type' => 'info'
+                );
+            }else{
+                $notification = array(
+                    'message' => 'Ops!... yor cart is empty :)',
+                    'alert-type' => 'info'
+                );
+            }
             return redirect()->back()->with($notification);
         }
     }

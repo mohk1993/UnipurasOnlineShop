@@ -84,7 +84,7 @@
                             <div class="items-cart-inner">
                                 <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
                                 <div class="basket-item-count"><span class="count" id="cartQty"></span></div>
-                                <div class="total-price-basket"> <span class="lbl">cart -</span> 
+                                <div class="total-price-basket"> <span class="lbl">@if(session()->get('language') == 'lithuanian') krepšelis @else cart @endif -</span> 
                                 <span class="total-price"> <span class="sign">$</span>
                                 <span class="value" id="cartSubTotal"></span> </span> </div>
                             </div>
@@ -97,9 +97,9 @@
                                 </div>
                                 <!-- Ajax Cart -->
                                 <div class="clearfix cart-total">
-                                    <div class="pull-right"> <span class="text">Sub Total :</span><span class='price' id="cartSubTotal"></span> </div>
+                                    <div class="pull-right"> <span class="text">@if(session()->get('language') == 'lithuanian') Iš viso @else Sub Total @endif :</span><span class='price' id="cartSubTotal"></span> </div>
                                     <div class="clearfix"></div>
-                                    <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                    <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">@if(session()->get('language') == 'lithuanian') Atsiskaitymas @else Checkout @endif</a>
                                 </div>
 
                             </li>

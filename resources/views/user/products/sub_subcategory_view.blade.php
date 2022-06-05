@@ -82,7 +82,7 @@ Category Wise Products
           </div>
         </div>
         @empty
-        <h5 class="text-danger"> No Pics Avilable Now</h5>
+        <h5 class="text-danger">@if(session()->get('language') == 'lithuanian') Dabar nėra nuotraukų @else No Pics Avilable Now @endif </h5>
         @endforelse
 
 
@@ -91,14 +91,12 @@ Category Wise Products
             <div class="col col-sm-6 col-md-2">
               <div class="filter-tabs">
                 <ul id="filter-tabs" class="nav nav-tabs nav-tab-box nav-tab-fa-icon">
-                  <li class="active"> <a data-toggle="tab" href="#grid-container"><i class="icon fa fa-th-large"></i>Grid</a> </li>
-                  <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-th-list"></i>List</a></li>
+                  <li class="active"> <a data-toggle="tab" href="#grid-container"><i class="icon fa fa-th-large"></i>@if(session()->get('language') == 'lithuanian') Tinklelis @else Grid @endif</a> </li>
+                  <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-th-list"></i>@if(session()->get('language') == 'lithuanian') Sąrašas @else List @endif</a></li>
                 </ul>
               </div>
-              <!-- /.filter-tabs -->
             </div>
-            <!-- /.col -->
-            <div class="col col-sm-12 col-md-6">
+            <!-- <div class="col col-sm-12 col-md-6">
               <div class="col col-sm-3 col-md-6 no-padding">
                 <div class="lbl-cnt"> <span class="lbl">Sort by</span>
                   <div class="fld inline">
@@ -112,14 +110,10 @@ Category Wise Products
                       </ul>
                     </div>
                   </div>
-                  <!-- /.fld -->
                 </div>
-                <!-- /.lbl-cnt -->
               </div>
-              <!-- /.col -->
               <div class="col col-sm-3 col-md-6 no-padding">
-                <div class="lbl-cnt"> <span class="lbl">Show</span>
-                  <div class="fld inline">
+                <div class="lbl-cnt"> <span class="lbl">Show</span>                 <div class="fld inline">
                     <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
                       <button data-toggle="dropdown" type="button" class="btn dropdown-toggle"> 1 <span class="caret"></span> </button>
                       <ul role="menu" class="dropdown-menu">
@@ -136,13 +130,9 @@ Category Wise Products
                       </ul>
                     </div>
                   </div>
-                  <!-- /.fld -->
                 </div>
-                <!-- /.lbl-cnt -->
               </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.col -->
+            </div> -->
 
           </div>
           <!-- /.row -->

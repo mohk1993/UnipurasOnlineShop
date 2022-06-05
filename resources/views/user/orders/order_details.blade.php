@@ -3,7 +3,7 @@
 <div class="row" style="padding-top: 20px;">
     @include('user.user_dash_sidbar')
     <h4>
-        <span class="text-danger"> Shipment Details</span>
+        <span class="text-danger"> @if(session()->get('language') == 'lithuanian') Išsami informacija apie siuntą @else Shipment Details @endif</span>
     </h4>
     <div class="col-md-8">
         <table class="table table-dark">
@@ -34,20 +34,20 @@
                 </tr>
             </tbody>
         </table>
-        <h4>Order Details
-            <span class="text-danger"> Invoice : {{ $order->invoice_no }}</span>
+        <h4> @if(session()->get('language') == 'lithuanian') Užsisakykite @else Order @endif Details
+            <span class="text-danger">  @if(session()->get('language') == 'lithuanian') Sąskaita faktūra @else Invoice @endif : {{ $order->invoice_no }}</span>
         </h4>
         <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Recipient Name</th>
-                    <th scope="col">Recipient Phone</th>
-                    <th scope="col"> Payment Type</th>
-                    <th scope="col">Transaction ID</th>
-                    <th scope="col">Invoice </th>
-                    <th scope="col">Order Total</th>
-                    <th scope="col">Order Status</th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Gavėjo pavadinimas @else Recipient Name @endif</th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Gavėjo telefonas @else Recipient Phone @endif</th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Mokėjimo tipas @else Payment Type @endif </th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Sandorio ID @else Transaction ID @endif</th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Sąskaita faktūra @else Invoice @endif </th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Užsakymas Iš viso @else Order Total @endif</th>
+                    <th scope="col"> @if(session()->get('language') == 'lithuanian') Užsakymo būsena @else Order Status @endif</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,25 +71,25 @@
                     <tbody>
                         <tr style="background: #e2e2e2;">
                             <td class="col-md-1">
-                                <label for=""> Image</label>
+                                <label for="">  @if(session()->get('language') == 'lithuanian') Vaizdas @else Image @endif</label>
                             </td>
                             <td class="col-md-3">
-                                <label for=""> Product Name </label>
+                                <label for=""> @if(session()->get('language') == 'lithuanian') Produkto pavadinimas @else Shipment Details @endif  </label>
                             </td>
                             <td class="col-md-3">
-                                <label for=""> Product Code</label>
+                                <label for=""> @if(session()->get('language') == 'lithuanian') Produkto kodas @else Product Code @endif </label>
                             </td>
                             <td class="col-md-1">
-                                <label for=""> Quantity </label>
+                                <label for=""> @if(session()->get('language') == 'lithuanian') Kiekis @else Quantity @endif  </label>
                             </td>
                             <td class="col-md-1">
-                                <label for=""> Price (1 vnt) </label>
+                                <label for=""> @if(session()->get('language') == 'lithuanian') Kaina (1 vnt) @else Price (1 vnt) @endif  </label>
                             </td>
                             <td class="col-md-1">
-                                <label for=""> Tax </label>
+                                <label for="">  @if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif </label>
                             </td>
                             <td class="col-md-1">
-                                <label for=""> Price Total </label>
+                                <label for=""> @if(session()->get('language') == 'lithuanian') Kaina Iš viso @else Price Total @endif  </label>
                             </td>
                         </tr>
                         @foreach($orderItem as $item)

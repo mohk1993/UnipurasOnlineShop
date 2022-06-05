@@ -39,8 +39,8 @@ Payment
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
-                <li class='active'>Payment</li>
+                <li><a href="home.html">@if(session()->get('language') == 'lithuanian') Pagrindinis @else Home @endif</a></li>
+                <li class='active'>@if(session()->get('language') == 'lithuanian') Grynieji pinigai @else Cash @endif</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
     </div><!-- /.container -->
@@ -54,20 +54,20 @@ Payment
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="unicase-checkout-title">Proceed To Pay</h4>
+                            <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Pereiti prie mokėjimo @else Proceed To Pay @endif</h4>
                         </div>
                         <div class="">
                             <ul class="nav nav-checkout-progress list-unstyled">
                                 <li>
-                                    <strong>Grand Total Befor Tax : </strong> ${{ $totalBeforTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Bendra suma prieš mokesčius @else Grand Total Befor Tax @endif : </strong> ${{ $totalBeforTax }}
                                 </li>
                                 <hr>
                                 <li>
-                                    <strong>Tax: </strong> ${{ $cartTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif: </strong> ${{ $cartTax }}
                                 </li>
                                 <hr>
                                 <li>
-                                    <strong>Grand Total After Tax : </strong> ${{ $totalAfterTax }}
+                                    <strong>@if(session()->get('language') == 'lithuanian') Bendra suma po mokesčių @else Grand Total After Tax @endif : </strong> ${{ $totalAfterTax }}
                                     <hr>
                                 </li>
                             </ul>
@@ -83,14 +83,14 @@ Payment
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                            <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Pasirinkite mokėjimo būdą @else Select Payment Method @endif</h4>
                         </div>
 
                         <form action="{{ route('stripe.order') }}" method="post" id="payment-form">
                             @csrf
                             <div class="form-row">
                                 <label for="card-element">
-                                    Credit or debit card
+                                @if(session()->get('language') == 'lithuanian')  Kredito arba debeto kortelė @else  Credit or debit card @endif
                                     <input type="hidden" name="name" value="{{ $data['shipping_name'] }}">
                                     <input type="hidden" name="email" value="{{ $data['shipping_email'] }}">
                                     <input type="hidden" name="phone" value="{{ $data['shipping_phone'] }}">
@@ -108,7 +108,7 @@ Payment
                                 <div id="card-errors" role="alert"></div>
                             </div>
                             <br>
-                            <button class="btn btn-primary">Pay</button>
+                            <button class="btn btn-primary">@if(session()->get('language') == 'lithuanian') Mokėkite @else Pay @endif</button>
                         </form>
                     </div>
                 </div>

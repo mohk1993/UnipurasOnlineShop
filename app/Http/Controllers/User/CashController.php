@@ -80,12 +80,17 @@ class CashController extends Controller
 		}
 
 		Cart::destroy();
-
-		$notification = array(
-			'message' => 'Your Order Place Successfully',
-			'alert-type' => 'success'
-		);
-
+		if (session()->get('language') == 'lithuanian') {
+			$notification = array(
+				'message' => 'Jūsų užsakymo vieta sėkmingai',
+				'alert-type' => 'success'
+			);
+		} else {
+			$notification = array(
+				'message' => 'Your Order Place Successfully',
+				'alert-type' => 'success'
+			);
+		}
 		return redirect()->route('dashboard')->with($notification);
 	} // end method 
 

@@ -9,22 +9,17 @@
                 <tbody>
                     <tr style="background: #e2e2e2;">
                         <td class="col-md-1">
-                            <label for=""> Date</label>
-                        </td>
-                        <td class="col-md-3">
-                            <label for=""> Total</label>
-                        </td>
-                        <td class="col-md-3">
-                            <label for=""> Payment</label>
-                        </td>
-                        <td class="col-md-2">
-                            <label for=""> Invoice</label>
-                        </td>
-                        <td class="col-md-2">
-                            <label for=""> Order</label>
-                        </td>
-                        <td class="col-md-1">
-                            <label for=""> Action </label>
+                            <label for="">@if(session()->get('language') == 'lithuanian')Data  @else Date @endif </
+                        <td 
+                            <label for=""> @if(session()->get('language') == 'lithuanian') Iš viso @else Total @endif</
+                        <td 
+                            <label for="">@if(session()->get('language') == 'lithuanian') Mokėjimas @else Payment @endif </
+                        <td 
+                            <label for="">@if(session()->get('language') == 'lithuanian') Sąskaita faktūra @else Invoice @endif </
+                        <td 
+                            <label for="">@if(session()->get('language') == 'lithuanian') Užsisakykite @else Order @endif </
+                        <td 
+                            <label for="">@if(session()->get('language') == 'lithuanian') Veiksmas @else Action @endif  </label>
                         </td>
                     </tr>
 
@@ -48,8 +43,8 @@
                             </label>
                         </td>
                         <td class="col-md-1">
-                            <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
-                            <a href="{{ url('user/invoice/'.$order->id ) }}" class="btn btn-sm btn-danger"><i class="fa fa-download" style="color: white;"></i> Invoice </a>
+                            <a href="{{ url('user/order_details/'.$order->id ) }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>@if(session()->get('language') == 'lithuanian') Peržiūrėti @else View @endif</a>
+                            <a href="{{ url('user/invoice/'.$order->id ) }}" class="btn btn-sm btn-danger"><i class="fa fa-download" style="color: white;"></i>@if(session()->get('language') == 'lithuanian') Sąskaita faktūra @else Invoice @endif  </a>
                         </td>
                     </tr>
                     @endforeach

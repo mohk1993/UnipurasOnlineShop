@@ -33,7 +33,6 @@
                                 <td>{{ $subcat->sub_subcategory_name_lith}}</td>
                                 <td class="d-md-flex justify-content-center">
                                     <a href="{{ route('view.update.subsubcategory',$subcat->id) }}" class="btn btn-info" title="Update Data" style="margin-right: 10px;"><i class="fa fa-pencil"></i></a>
-                                    <a href="{{ route('delete.subsubcategory',$subcat->id) }}" id="delete" class="btn btn-danger" title="Delete Data"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -9,8 +9,8 @@ Checkout
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
-                <li class='active'>Checkout</li>
+                <li><a href="home.html">@if(session()->get('language') == 'lithuanian') Pagrindinis @else Home @endif</a></li>
+                <li class='active'>@if(session()->get('language') == 'lithuanian') Atsiskaitymas @else Checkout @endif</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
     </div><!-- /.container -->
@@ -49,25 +49,25 @@ Checkout
                                                 <h4 class="checkout-subtitle">@if(Auth::check()) Hi... {{Auth::user()->name}} @else Enter Your Information @endif</h4>
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') Pavadinimas @else Name @endif <span>*</span></label>
                                                     <input type="text" name="shipping_name" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Full Name" value="{{ $userName }}" required="">
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Email <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') El. paštas @else Email @endif <span>*</span></label>
                                                     <input type="email" name="shipping_email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Email" value="{{ $userEmail }}" required="">
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Phone <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') Telefonas @else Phone @endif <span>*</span></label>
                                                     <input type="text" name="shipping_phone" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Phone" value="{{ $userPhone }}" required="">
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Post Code <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') Pašto kodas @else Post Code @endif <span>*</span></label>
                                                     <input type="text" name="post_code" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Post Code" required="">
                                                 </div>
 
@@ -79,10 +79,10 @@ Checkout
                                             <!-- already-registered-login -->
                                             <div class="col-md-6 col-sm-6 already-registered-login">
                                                 <div class="form-group">
-                                                    <h5><b>Division Select </b> <span class="text-danger">*</span></h5>
+                                                    <h5><b>@if(session()->get('language') == 'lithuanian') Pasirinkti skyrių @else Division Select @endif </b> <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="division_id" class="form-control" required="">
-                                                            <option value="" selected="" disabled="">Select Division</option>
+                                                            <option value="" selected="" disabled="">@if(session()->get('language') == 'lithuanian') Pasirinkite skyrių @else Select Division @endif</option>
                                                             @foreach($divisions as $item)
                                                             <option value="{{ $item->id }}">{{ $item->shipment_name }}</option>
                                                             @endforeach
@@ -93,10 +93,10 @@ Checkout
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <h5><b>District Select</b> <span class="text-danger">*</span></h5>
+                                                    <h5><b>@if(session()->get('language') == 'lithuanian') Pasirinkti rajoną @else District Select @endif</b> <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="district_id" class="form-control" required="">
-                                                            <option value="" selected="" disabled="">Select District</option>
+                                                            <option value="" selected="" disabled="">@if(session()->get('language') == 'lithuanian') Pasirinkite apygardą @else Select District @endif</option>
 
                                                         </select>
                                                         @error('district_id')
@@ -105,10 +105,10 @@ Checkout
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <h5><b>State Select</b> <span class="text-danger">*</span></h5>
+                                                    <h5><b>@if(session()->get('language') == 'lithuanian') Pasirinkite valstybę @else State Select @endif</b> <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="state_id" class="form-control" required="">
-                                                            <option value="" selected="" disabled="">Select State</option>
+                                                            <option value="" selected="" disabled="">@if(session()->get('language') == 'lithuanian') Pasirinkite valstybę @else Select State @endif</option>
 
                                                         </select>
                                                         @error('state_id')
@@ -117,22 +117,22 @@ Checkout
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Notes <span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">@if(session()->get('language') == 'lithuanian') Pastabos @else Notes @endif <span>*</span></label>
                                                     <textarea class="form-control" cols="30" rows="5" placeholder="Notes" name="notes"></textarea>
                                                 </div>
                                             </div>
 
                                             <!-- already-registered-login -->
                                             @if(!Auth::check())
-                                            <h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
-                                            <p class="text title-tag-line ">Register with us for future convenience:</p>
+                                            <h4 class="checkout-subtitle outer-top-vs">@if(session()->get('language') == 'lithuanian') Registruokitės ir sutaupykite laiko @else Register and save time @endif</h4>
+                                            <p class="text title-tag-line ">@if(session()->get('language') == 'lithuanian') Užsiregistruokite pas mus, kad ateityje būtų patogu @else Register with us for future convenience @endif :</p>
 
                                             <ul class="text instruction inner-bottom-30">
-                                                <li class="save-time-reg">- Fast and easy check out</li>
-                                                <li>- Easy access to your order history and status</li>
+                                                <li class="save-time-reg">-@if(session()->get('language') == 'lithuanian') Greitas ir paprastas patikrinimas @else Fast and easy check out @endif </li>
+                                                <li>- @if(session()->get('language') == 'lithuanian') Lengva prieiga prie užsakymų istorijos ir būsenos @else Easy access to your order history and status @endif</li>
                                             </ul>
 
-                                            <a href="{{route('login')}}" type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">login</a>
+                                            <a href="{{route('login')}}" type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">@if(session()->get('language') == 'lithuanian') prisijungimas @else login @endif</a>
                                             @endif
                                     </div>
                                 </div>
@@ -149,33 +149,33 @@ Checkout
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Your Checkout Progress</h4>
+                                    <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Atsiskaitymo eiga @else Your Checkout Progress @endif</h4>
                                 </div>
                                 <div class="">
                                     <ul class="nav nav-checkout-progress list-unstyled">
 
                                         @foreach($carts as $item)
                                         <li>
-                                            <strong>Image: </strong>
+                                            <strong>@if(session()->get('language') == 'lithuanian') Vaizdas @else Image @endif: </strong>
                                             <img src="{{ asset($item->options->image) }}" style="height: 50px; width: 50px;">
                                         </li>
 
                                         <li>
-                                            <strong>Qty: </strong>
+                                            <strong>@if(session()->get('language') == 'lithuanian') Kiekis @else Qty @endif: </strong>
                                             ( {{ $item->qty }} )
-                                            <strong>Product Name: </strong>
+                                            <strong>@if(session()->get('language') == 'lithuanian') Produkto pavadinimas @else Product Name @endif: </strong>
                                             ( {{ $item->name }} )
                                         </li>
                                         @endforeach
                                         <hr>
                                         <li>
-                                            <strong>Grand Total Befor Tax : </strong> ${{ $totalBeforTax }}
+                                            <strong>@if(session()->get('language') == 'lithuanian') Bendra suma prieš mokesčius @else Grand Total Befor Tax @endif : </strong> ${{ $totalBeforTax }}
                                         </li>
                                         <li>
-                                            <strong>Tax: </strong> ${{ $cartTax }}
+                                            <strong>@if(session()->get('language') == 'lithuanian') Mokesčiai @else Tax @endif: </strong> ${{ $cartTax }}
                                         </li>
                                         <li>
-                                            <strong>Grand Total After Tax : </strong> ${{ $totalAfterTax }}
+                                            <strong>@if(session()->get('language') == 'lithuanian') Bendra suma po mokesčių @else Grand Total After Tax @endif : </strong> ${{ $totalAfterTax }}
                                             <hr>
                                         </li>
                                     </ul>
@@ -191,29 +191,29 @@ Checkout
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                                    <h4 class="unicase-checkout-title">@if(session()->get('language') == 'lithuanian') Pasirinkite mokėjimo būdą @else Select Payment Method @endif</h4>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="">Stripe</label>
+                                        <label for="">@if(session()->get('language') == 'lithuanian') Stripe @else Stripe @endif</label>
                                         <input type="radio" name="payment_method" value="stripe">
                                         <img src="{{ asset('user-tmp/assets/images/payments/4.png') }}">
                                     </div> <!-- end col md 4 -->
 
                                     <div class="col-md-4">
-                                        <label for="">Card</label>
+                                        <label for="">@if(session()->get('language') == 'lithuanian') Kortelė @else Card @endif</label>
                                         <input type="radio" name="payment_method" value="card">
                                         <img src="{{ asset('user-tmp/assets/images/payments/3.png') }}">
                                     </div> <!-- end col md 4 -->
 
                                     <div class="col-md-4">
-                                        <label for="">Cash</label>
+                                        <label for="">@if(session()->get('language') == 'lithuanian') Grynieji pinigai @else Cash @endif</label>
                                         <input type="radio" name="payment_method" value="cash">
                                         <img src="{{ asset('user-tmp/assets/images/payments/cash.jpg') }}" style="height: 30px; width: 60px;">
                                     </div> <!-- end col md 4 -->
                                 </div> <!-- // end row  -->
                                 <hr>
-                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button"> Proceed to Pay</button>
+                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button"> @if(session()->get('language') == 'lithuanian') Pereiti prie mokėjimo @else Proceed to Pay @endif</button>
                             </div>
                         </div>
                     </div>
